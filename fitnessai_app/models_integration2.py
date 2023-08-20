@@ -4,7 +4,6 @@ from models.Sarimax import calc_decay
 from models.Squat_majority import test_squat
 from models.Dedlift_majority import test_deadlift
 from models.Bench_majority import test_bench
-import random
 
 ############################# training_type
 squat = 0
@@ -74,15 +73,14 @@ def save_results_CNN_in_mongodb(result, id):
 def analyze_CNN_photos(exercise, id):
     if exercise == 1:
         print('Analyze squat')
-        #result = test_squat()
+        result = test_squat()
     elif exercise == 0:
         print('Analyze deadlift')
-        #result = test_deadlift()
+        result = test_deadlift()
     else:
         print('Analyze Bench Press')
-        #result = test_bench()
+        result = test_bench()
 
-    result = random.choice([0, 1])
     save_results_CNN_in_mongodb(result, id)
     
 
